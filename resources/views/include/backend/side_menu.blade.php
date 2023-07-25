@@ -29,8 +29,6 @@
         </div>
     </div>
 
-
-
     <div class="aside-menu flex-column-fluid">
         <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0" style="height: 320px;">
 
@@ -76,7 +74,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Administrative Users</span>
+                                <span class="menu-title">User</span>
                             </a>
                         </div>
 
@@ -85,7 +83,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Coin Agency Users</span>
+                                <span class="menu-title">Coin Agency User</span>
                             </a>
                         </div>
                         
@@ -94,7 +92,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Host Agency Users</span>
+                                <span class="menu-title">Host Agency User</span>
                             </a>
                         </div>
 
@@ -114,7 +112,39 @@
 
                 @endrole
 
-                @role('Super Admin|Admin|Operator')
+                @role('Coin Agency')
+                <div class="menu-item {{ (request()->is('*dashboard*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('dashboard') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="menu-item {{ (request()->is('*coin-agency-recharge*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-recharge') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Recharge</span>
+                    </a>
+                </div>
+
+                <div class="menu-item {{ (request()->is('*coin-agency-coin-send*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-coin-send') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Coin Send</span>
+                    </a>
+                </div>
                 <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('*master_report_usage*')) ? 'show hover' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">

@@ -23,9 +23,11 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title" style="color: #3699ff">Special title treatment</h5>
-                <p class="card-text" style="color: #3699ff">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <img alt="Logo" src="{{asset('metch')}}/media/logos/agency-1.jpg" style="object-fit: contain; max-width: 100%;" />
+                <br><br>
+                <h5 class="card-title" style="color: #3699ff">PEACHFUL AGENCY</h5>
+                <p class="card-text" style="color: #3699ff">Whatsapp number <b>+39 351 287 0975</b></p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>
     </div>
@@ -33,29 +35,11 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title" style="color: #3699ff">Special title treatment</h5>
-                <p class="card-text" style="color: #3699ff">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title" style="color: #3699ff">Special title treatment</h5>
-                <p class="card-text" style="color: #3699ff">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title" style="color: #3699ff">Special title treatment</h5>
-                <p class="card-text" style="color: #3699ff">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <img alt="Logo" src="{{asset('metch')}}/media/logos/agency-1.jpg" style="object-fit: contain; max-width: 100%;" />
+                <br><br>
+                <h5 class="card-title" style="color: #3699ff">PEACHFUL AGENCY</h5>
+                <p class="card-text" style="color: #3699ff">Whatsapp number <b>+39 351 287 0975</b></p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>
     </div>

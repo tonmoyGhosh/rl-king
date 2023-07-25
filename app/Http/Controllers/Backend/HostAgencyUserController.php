@@ -45,9 +45,14 @@ class HostAgencyUserController extends Controller
                 })
                 ->addColumn('action', function ($row) {
 
+                    
                     $btn = '<div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="btn btn-sm btn-icon btn-outline-success btn-circle mr-2 edit editUser"><i class=" fi-rr-edit"></i></div>';
+                    
                     // $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 deleteUser"><i class="fi-rr-trash"></i></div>';
-                    $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 PasswordChange"><i class="fa fa-key"></i></div>';
+                    if($row->approval_status == 1)
+                    {
+                        $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 PasswordChange"><i class="fa fa-key"></i></div>';
+                    }
 
                     return $btn;
                 })

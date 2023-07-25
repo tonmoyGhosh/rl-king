@@ -8,12 +8,21 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Validator;
+use Auth;
 
 class RegistrationController extends Controller
-{
+{   
+    
     public function coinAgencyRegisterForm()
-    {
-        return view('frontend.register.coin-agency');
+    {       
+        $userLoginCheck = Auth::user();
+
+        if($userLoginCheck) {
+            return redirect()->route('dashboard');
+        }
+        else {
+            return view('frontend.register.coin-agency');
+        }
     }
 
     public function coinAgencyRegisterStore(Request $request)
@@ -68,8 +77,15 @@ class RegistrationController extends Controller
     }
 
     public function hostAgencyRegisterForm()
-    {
-        return view('frontend.register.host-agency');
+    {   
+        $userLoginCheck = Auth::user();
+
+        if($userLoginCheck) {
+            return redirect()->route('dashboard');
+        }
+        else {
+            return view('frontend.register.host-agency');
+        }
     }
 
     public function hostAgencyRegisterStore(Request $request)

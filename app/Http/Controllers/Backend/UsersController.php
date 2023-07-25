@@ -26,7 +26,7 @@ class UsersController extends Controller
                                     $q->whereIn('name', ['Admin', 'Executive', 'Support Staff']);
                                 })->latest()->count(),
 
-            'title'    => 'Administrative User List'
+            'title'    => 'User List'
         ];
 
         if($request->ajax()) 
@@ -57,8 +57,13 @@ class UsersController extends Controller
                 ->addColumn('action', function ($row) {
 
                     $btn = '<div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="btn btn-sm btn-icon btn-outline-success btn-circle mr-2 edit editUser"><i class=" fi-rr-edit"></i></div>';
-                    $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 deleteUser"><i class="fi-rr-trash"></i></div>';
-                    $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 PasswordChange"><i class="fa fa-key"></i></div>';
+
+                    // $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 deleteUser"><i class="fi-rr-trash"></i></div>';
+
+                    if($row->approval_status == 1)
+                    {
+                        $btn = $btn . ' <div data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-sm btn-icon btn-outline-danger btn-circle mr-2 PasswordChange"><i class="fa fa-key"></i></div>';
+                    }
 
                     return $btn;
                 })
@@ -73,8 +78,8 @@ class UsersController extends Controller
     {
         $data = [
             'count_user' => User::latest()->count(),
-            'title'      => 'Create Administrative User',
-            'roles'      => Role::whereNotIn('name', ['Super Admin', 'Coin Agency', 'Host Agency'])->pluck('name')
+            'title'      => 'Create User',
+            'roles'      => Role::pluck('name')
         ];
 
         return view('backend.user.create', $data);
@@ -174,6 +179,11 @@ class UsersController extends Controller
             $user                       = User::find($id);
             $user->name                 = $request->name;
             $user->approval_status      = (int)$request->status;
+            if((int)$request->status == 0)
+            {
+                $user->password         = null; 
+            }
+            
             $user->update();
 
             // Assign User Role

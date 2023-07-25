@@ -63,6 +63,15 @@ Route::group(['middleware' => ['role:Super Admin|Admin']], function ()
 
 });
 
+Route::group(['middleware' => ['role:Coin Agency']], function ()
+{   
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/coin-agency-recharge', [DashboardController::class, 'index'])->name('coin-agency-recharge');
+    Route::get('/coin-agency-coin-send', [DashboardController::class, 'index'])->name('coin-agency-coin-send');
+});
+
+
 // Route::group(['middleware' => ['role:Super Admin|Admin|Operator']], function ()
 // {
 //     // Group Module
