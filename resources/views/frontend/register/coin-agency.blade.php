@@ -3,9 +3,14 @@
 
 @section('content')
 
+    <a href={{ route('dashboard') }}>
+        <img alt="Logo" src="{{asset('metch')}}/media/logos/app_logo.jpg" class="page_speed_8658815" style="object-fit: contain; max-width: 100%;  width: 150px;">
+    </a>
+    <br><br>
+
     <h3 style="color: #3699ff"><b></b>Apply As Coin Agency</b></h3>
     <br>
-    
+
     <form id="formDiv" method="POST" action="{{ route('coinAgencyRegisterStore') }}">
         @csrf
         

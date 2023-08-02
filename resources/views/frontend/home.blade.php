@@ -23,7 +23,7 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <img alt="Logo" src="{{asset('metch')}}/media/logos/agency-1.jpg" style="object-fit: contain; max-width: 100%;" />
+                <img alt="Logo" src="{{asset('metch')}}/media/logos/agency-1.jpg" style="object-fit: contain; max-width: 120px; height: 100px;" />
                 <br><br>
                 <h5 class="card-title" style="color: #3699ff">PEACHFUL AGENCY</h5>
                 <p class="card-text" style="color: #3699ff">Whatsapp number <b>+39 351 287 0975</b></p>
@@ -35,10 +35,10 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <img alt="Logo" src="{{asset('metch')}}/media/logos/agency-1.jpg" style="object-fit: contain; max-width: 100%;" />
+                <img alt="Logo" src="{{asset('metch')}}/media/logos/agency-2.jpg" style="object-fit: contain; max-width: 120px; height: 100px;" />
                 <br><br>
-                <h5 class="card-title" style="color: #3699ff">PEACHFUL AGENCY</h5>
-                <p class="card-text" style="color: #3699ff">Whatsapp number <b>+39 351 287 0975</b></p>
+                <h5 class="card-title" style="color: #3699ff">CANDLE LIGHT</h5>
+                <p class="card-text" style="color: #3699ff">Whatsapp number <b>01843042751</b></p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>

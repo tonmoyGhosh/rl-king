@@ -1,6 +1,6 @@
 @extends('layouts.backend_app')
 
-@section('title', 'User List')
+@section('title', 'Recharge List')
 
 @section('content')
 
@@ -9,10 +9,10 @@
         <div class="card">
 
             <div class="card-header">
-                <h2>{{$title}}</h2>
+                <h2>{{ $title }}</h2>
                 <div class="d-flex flex-row-reverse">
-                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder">
-                    <i class="fas fa-plus"></i>Add User</a>
+                    <a href="{{ route('coin-agency-recharge-create') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder">
+                    <i class="fas fa-plus"></i>Add Request</a>
                 </div>
             </div>
 
@@ -23,10 +23,11 @@
                             <thead class="font-weight-bold text-center">
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Current Status</th>
+                                    <th>Currency</th>
+                                    <th>Recharge Amount</th>
+                                    <th>Payment Type</th>
+                                    <th>Transaction Id</th>
+                                    <th>Status</th>
                                     <th style="width:137px;">Action</th>
                                 </tr>
                             </thead>
@@ -46,9 +47,8 @@
 
 @push('scripts')
 <script>
+    $('document').ready(function () {
 
-    $('document').ready(function () 
-    {
         // success alert
         function swal_success(msg) {
             Swal.fire({
@@ -65,7 +65,7 @@
             Swal.fire({
                 position: 'centered',
                 icon: 'error',
-                title: 'Something went wrong!',
+                title: 'Something goes wrong!',
                 showConfirmButton: true,
             })
         }
@@ -82,7 +82,7 @@
             buttons: [
                 // 'copy', 'excel', 'pdf'
             ],
-            ajax: "{{ route('user.index') }}",
+            ajax: "{{ route('coin-agency-recharge-list') }}",
             columns: [
                 {
                     data: 'DT_RowIndex',
@@ -90,16 +90,20 @@
                     orderable: false
                 },
                 {
-                    data: 'name',
-                    name: 'name'
+                    data: 'currency',
+                    name: 'currency'
                 },
                 {
-                    data: 'email',
-                    name: 'email'
+                    data: 'amount',
+                    name: 'amount'
                 },
                 {
-                    data: 'role',
-                    name: 'role'
+                    data: 'payment_type',
+                    name: 'payment_type'
+                },
+                {
+                    data: 'transaction_id',
+                    name: 'transaction_id'
                 },
                 {
                     data: 'status',
@@ -115,16 +119,10 @@
         });
 
         // initialize btn edit
-        $('body').on('click', '.editUser', function ()
+        $('body').on('click', '.editModel', function ()
         {
-            var user_id = $(this).data('id');
-            window.location.href = "../user/edit/"+user_id;
-        });
-        // initialize btn edit
-        $('body').on('click', '.PasswordChange', function ()
-        {
-            var user_id = $(this).data('id');
-            window.location.href = "../users/"+user_id+"/password-change";
+            var model_id = $(this).data('id');
+            window.location.href = "../coin-agency-recharge/edit/"+model_id;
         });
 
         $.ajaxSetup({
@@ -134,43 +132,43 @@
         });
 
         // initialize btn delete
-        // $('body').on('click', '.deleteUser', function () {
+        $('body').on('click', '.deleteModel', function () {
 
-        //     var user_id = $(this).data("id");
+            var model_id = $(this).data("id");
 
-        //     Swal.fire({
-        //         title: 'Are you sure?',
-        //         text: "You won't be able to revert this!",
-        //         icon: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonColor: '#3085d6',
-        //         cancelButtonColor: '#d33',
-        //         confirmButtonText: 'Yes, delete it!'
-        //     }).then((result) => {
-        //         if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
 
-        //             $.ajax({
-        //                 type: "DELETE",
-        //                 url: "/users" + '/' + user_id,
-        //                 success: function (data)
-        //                 {
-        //                     if(data.status == true)
-        //                     {
-        //                         swal_success(data.message);
-        //                         table.draw();
-        //                     }
-        //                     else swal_error();
+                    $.ajax({
+                        type: "POST",
+                        url: "../coin-agency-recharge/delete/" + model_id,
+                        success: function (data)
+                        {
+                            if(data.status == true)
+                            {
+                                swal_success(data.message);
+                                table.draw();
+                            }
+                            else swal_error();
 
-        //                 },
-        //                 error: function (data)
-        //                 {
-        //                     swal_error();
-        //                 }
-        //             });
-        //         }
-        //     })
+                        },
+                        error: function (data)
+                        {
+                            swal_error();
+                        }
+                    });
+                }
+            })
 
-        // });
+        });
 
 
     });

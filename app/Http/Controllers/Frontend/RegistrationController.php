@@ -14,7 +14,7 @@ class RegistrationController extends Controller
 {   
     
     public function coinAgencyRegisterForm()
-    {       
+    {     
         $userLoginCheck = Auth::user();
 
         if($userLoginCheck) {
@@ -43,10 +43,13 @@ class RegistrationController extends Controller
                 return response()->json(['errors' => $validator->errors()]);
             }
 
+            $code = 'rlking$coin#'.(User::count() + 1);
+
             // User Add
             $user               = new User();
             $user->name         = $request->name;
             $user->email        = $request->email;
+            $user->code         = $code;
             $user->phone_no     = $request->phone_no;
             $user->save();
 

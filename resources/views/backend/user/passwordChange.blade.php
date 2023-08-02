@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <h2>{{$title}}</h2>
                     <div class="d-flex flex-row-reverse">
-                        <a href="{{ route('users.index') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder" >
+                        <a href="{{ route('user.index') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder" >
                             <i class="fas fa-users"></i>User List</a>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
 
                             window.setTimeout( function()
                             {
-                                window.location = "{{ route('users.index') }}"
+                                window.location = "{{ route('user.index') }}"
                                 
                             }, 100 )
                         } 

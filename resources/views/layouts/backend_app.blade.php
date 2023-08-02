@@ -107,11 +107,7 @@
 
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed" style="background-color: #DA6343;">
         <!--begin::Logo-->
-        <a href="#">
-            <img alt="Logo" src="{{asset('metch')}}/media/logos/app_logo.png"
-                style="object-fit: contain; max-width: 61%; width: 300px" />
-            {{--            <div class="text-white"><i class="fab fa-angrycreative fa-4x"></i></div>--}}
-        </a>
+
         <!--end::Logo-->
         <!--begin::Toolbar-->
         <div class="d-flex align-items-center">

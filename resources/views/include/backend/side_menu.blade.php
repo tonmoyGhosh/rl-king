@@ -3,18 +3,6 @@
 
     <div class="aside-logo flex-column-auto" id="kt_aside_logo" style="background-color: #DA6343;">
 
-        <!-- @php $image = \App\Models\Setting::select('logo')->first(); @endphp
-
-        @if(!$image)
-        <a href={{ route('dashboard') }}>
-            <img alt="Logo" src="{{asset('metch')}}/media/logos/app_logo.png" class="page_speed_8658815" style="object-fit: contain; max-width: 100%;  width: 300px;">
-        </a>
-        @else
-        <a href={{ route('dashboard') }}>
-            <img alt="Logo" src="{{$image->logo}}" class="page_speed_8658815" style="object-fit: contain; max-width: 100%; width: 300px;">
-        </a>
-        @endif -->
-
         <a href={{ route('dashboard') }}>
             <h1>RL King</h1>
         </a>
@@ -67,10 +55,10 @@
                         <span class="menu-title">User Management</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <div kt-hidden-height="118" class="menu-sub menu-sub-accordion menu-active-bg page_speed_613444025" style="display: {{(request()->is('*users*')) ? 'block':'none'}}; overflow: hidden;">
+                    <div kt-hidden-height="118" class="menu-sub menu-sub-accordion menu-active-bg page_speed_613444025" style="display: {{(request()->is('*user*')) ? 'block':'none'}}; overflow: hidden;">
                         
-                        <div class="menu-item {{ (request()->is('*users*')) ? 'show hover' : '' }}">
-                            <a class="menu-link" href="{{ route('users.index')}}" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                        <div class="menu-item {{ (request()->is('*user*')) ? 'show hover' : '' }}">
+                            <a class="menu-link" href="{{ route('user.index')}}" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -124,8 +112,8 @@
                     </a>
                 </div>
 
-                <div class="menu-item {{ (request()->is('*coin-agency-recharge*')) ? 'show hover' : '' }}">
-                    <a class="menu-link " href="{{ route('coin-agency-recharge') }}">
+                <div class="menu-item {{ (request()->is('*coin-agency-recharge-list*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-recharge-list') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
@@ -135,8 +123,8 @@
                     </a>
                 </div>
 
-                <div class="menu-item {{ (request()->is('*coin-agency-coin-send*')) ? 'show hover' : '' }}">
-                    <a class="menu-link " href="{{ route('coin-agency-coin-send') }}">
+                <div class="menu-item {{ (request()->is('*coin-agency-coin-send-list*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-coin-send-list') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">

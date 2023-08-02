@@ -11,7 +11,7 @@
             <div class="card-header">
                 <h2>{{$title}}</h2>
                 <div class="d-flex flex-row-reverse">
-                    <a href="{{ route('users.index') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder" id="createNewUser">
+                    <a href="{{ route('user.index') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder" id="createNewUser">
                     <i class="fas fa-users"></i>User List</a>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                         </diV>
 
                         <div class="modal-footer">
-                            <a href="{{ route('users.index') }}" type="button" class="btn btn-light-primary font-weight-bold">Close</a>
+                            <a href="{{ route('user.index') }}" type="button" class="btn btn-light-primary font-weight-bold">Close</a>
                             <button type="button" class="btn btn-primary font-weight-bold" id="saveBtn">Save</button>
                         </div>
 
@@ -177,7 +177,7 @@
 
             $.ajax({
                 data: $('#formDiv').serialize(),
-                url: "{{ route('users.store') }}",
+                url: "{{ route('user.store') }}",
                 type: "POST",
                 dataType: 'json',
                 success: function (data)
@@ -207,7 +207,7 @@
 
                         window.setTimeout( function()
                         {
-                            window.location = "{{ route('users.index') }}"
+                            window.location = "{{ route('user.index') }}"
                             
                         }, 100 )
                     } 

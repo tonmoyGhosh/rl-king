@@ -10,10 +10,6 @@
 
             <div class="card-header">
                 <h2>{{$title}}</h2>
-                <!-- <div class="d-flex flex-row-reverse">
-                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder">
-                    <i class="fas fa-plus"></i>Add Coin Agency</a>
-                </div> -->
             </div>
 
             <div class="card-body">
@@ -112,13 +108,13 @@
         $('body').on('click', '.editUser', function ()
         {
             var user_id = $(this).data('id');
-            window.location.href = "/users/"+user_id+"/edit";
+            window.location.href = "../user/edit/"+user_id;
         });
         // initialize btn edit
         $('body').on('click', '.PasswordChange', function ()
         {
             var user_id = $(this).data('id');
-            window.location.href = "/users/"+user_id+"/password-change";
+            window.location.href = "../users/"+user_id+"/password-change";
         });
 
         $.ajaxSetup({
@@ -128,44 +124,43 @@
         });
 
         // initialize btn delete
-        $('body').on('click', '.deleteUser', function () {
+        // $('body').on('click', '.deleteUser', function () {
 
-            var user_id = $(this).data("id");
+        //     var user_id = $(this).data("id");
 
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
+        //     Swal.fire({
+        //         title: 'Are you sure?',
+        //         text: "You won't be able to revert this!",
+        //         icon: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Yes, delete it!'
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
 
-                    $.ajax({
-                        type: "DELETE",
-                        url: "/users" + '/' + user_id,
-                        success: function (data)
-                        {
-                            if(data.status == true)
-                            {
-                                swal_success(data.message);
-                                table.draw();
-                            }
-                            else swal_error();
+        //             $.ajax({
+        //                 type: "DELETE",
+        //                 url: "/users" + '/' + user_id,
+        //                 success: function (data)
+        //                 {
+        //                     if(data.status == true)
+        //                     {
+        //                         swal_success(data.message);
+        //                         table.draw();
+        //                     }
+        //                     else swal_error();
 
-                        },
-                        error: function (data)
-                        {
-                            swal_error();
-                        }
-                    });
-                }
-            })
+        //                 },
+        //                 error: function (data)
+        //                 {
+        //                     swal_error();
+        //                 }
+        //             });
+        //         }
+        //     })
 
-        });
-
+        // });
 
     });
 
