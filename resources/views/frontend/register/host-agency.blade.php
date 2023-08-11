@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <a href={{ route('dashboard') }}>
+    <a href={{ route('home') }}>
         <img alt="Logo" src="{{asset('metch')}}/media/logos/app_logo.jpg" class="page_speed_8658815" style="object-fit: contain; max-width: 100%;  width: 150px;">
     </a>
     <br><br>

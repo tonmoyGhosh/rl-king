@@ -3,6 +3,13 @@
 
 @section('content')
 
+<a href={{ route('home') }}>
+    <img alt="Logo" src="{{asset('metch')}}/media/logos/app_logo.jpg" class="page_speed_8658815" style="object-fit: contain; max-width: 100%;  width: 150px;">
+</a>
+<br><br>
+<a href="{{ route('login') }}" class="btn btn-primary">Login Here</a>
+<br><br>
+
 <div class="row">
  
     <div class="card" style="width:500px">

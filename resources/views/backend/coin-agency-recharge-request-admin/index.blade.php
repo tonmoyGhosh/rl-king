@@ -1,6 +1,6 @@
 @extends('layouts.backend_app')
 
-@section('title', 'Recharge List')
+@section('title', 'Recharge Request List')
 
 @section('content')
 
@@ -10,10 +10,6 @@
 
             <div class="card-header">
                 <h2>{{ $title }}</h2>
-                <div class="d-flex flex-row-reverse">
-                    <a href="{{ route('coin-agency-recharge-create') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder">
-                    <i class="fas fa-plus"></i>Add Request</a>
-                </div>
             </div>
 
             <div class="card-body">
@@ -23,6 +19,7 @@
                             <thead class="font-weight-bold text-center">
                                 <tr>
                                     <th>Sl</th>
+                                    <th>User</th>
                                     <th>Currency</th>
                                     <th>Recharge Amount</th>
                                     <th>Total Coin</th>
@@ -83,12 +80,16 @@
             buttons: [
                 // 'copy', 'excel', 'pdf'
             ],
-            ajax: "{{ route('coin-agency-recharge-list') }}",
+            ajax: "{{ route('coin-agency-recharge-request-list') }}",
             columns: [
                 {
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex',
                     orderable: false
+                },
+                {
+                    data: 'user',
+                    name: 'user'
                 },
                 {
                     data: 'currency',
@@ -127,7 +128,7 @@
         $('body').on('click', '.editModel', function ()
         {
             var model_id = $(this).data('id');
-            window.location.href = "../coin-agency-recharge/edit/"+model_id;
+            window.location.href = "../coin-agency-recharge-request/edit/"+model_id;
         });
 
         $.ajaxSetup({
@@ -154,7 +155,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "../coin-agency-recharge/delete/" + model_id,
+                        url: "../coin-agency-recharge-request/delete/" + model_id,
                         success: function (data)
                         {
                             if(data.status == true)

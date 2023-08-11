@@ -95,7 +95,7 @@ class UsersController extends Controller
             [
                 'name'      => 'required',
                 'email'     => 'required|string|email|max:255|unique:users',
-                'password'  => 'required',
+                // 'password'  => 'required',
                 'role'      => 'required'
 
             ]);
@@ -109,7 +109,7 @@ class UsersController extends Controller
             $user                       = new User();
             $user->name                 = $request->name;
             $user->email                = $request->email;
-            $user->password             = Hash::make($request->password);
+            // $user->password             = Hash::make($request->password);
             $user->approval_status      = (int)$request->status;
             $user->save();
 

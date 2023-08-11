@@ -1,6 +1,6 @@
 @extends('layouts.backend_app')
 
-@section('title', 'Recharge List')
+@section('title', 'Coin Send Transaction List')
 
 @section('content')
 
@@ -10,10 +10,6 @@
 
             <div class="card-header">
                 <h2>{{ $title }}</h2>
-                <div class="d-flex flex-row-reverse">
-                    <a href="{{ route('coin-agency-recharge-create') }}" class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder">
-                    <i class="fas fa-plus"></i>Add Request</a>
-                </div>
             </div>
 
             <div class="card-body">
@@ -23,12 +19,12 @@
                             <thead class="font-weight-bold text-center">
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Currency</th>
-                                    <th>Recharge Amount</th>
+                                    <th>Send User Name</th>
+                                    <th>Send User Id</th>
                                     <th>Total Coin</th>
-                                    <th>Payment Type</th>
-                                    <th>Transaction Id</th>
                                     <th>Status</th>
+                                    <th>Approved By</th>
+                                    <th>Rejected By</th>
                                     <th style="width:137px;">Action</th>
                                 </tr>
                             </thead>
@@ -83,7 +79,7 @@
             buttons: [
                 // 'copy', 'excel', 'pdf'
             ],
-            ajax: "{{ route('coin-agency-recharge-list') }}",
+            ajax: "{{ route('coin-agency-coin-send-request-list') }}",
             columns: [
                 {
                     data: 'DT_RowIndex',
@@ -91,28 +87,28 @@
                     orderable: false
                 },
                 {
-                    data: 'currency',
-                    name: 'currency'
+                    data: 'send_user_name',
+                    name: 'send_user_name'
                 },
                 {
-                    data: 'amount',
-                    name: 'amount'
+                    data: 'send_user_id',
+                    name: 'send_user_id'
                 },
                 {
                     data: 'coin',
                     name: 'coin'
                 },
                 {
-                    data: 'payment_type',
-                    name: 'payment_type'
-                },
-                {
-                    data: 'transaction_id',
-                    name: 'transaction_id'
-                },
-                {
                     data: 'status',
                     name: 'status'
+                },
+                {
+                    data: 'approved_by',
+                    name: 'approved_by'
+                },
+                {
+                    data: 'rejected_by',
+                    name: 'rejected_by'
                 },
                 {
                     data: 'action',
@@ -127,9 +123,9 @@
         $('body').on('click', '.editModel', function ()
         {
             var model_id = $(this).data('id');
-            window.location.href = "../coin-agency-recharge/edit/"+model_id;
+            window.location.href = "../coin-agency-coin-send-request/edit/"+model_id;
         });
-
+        
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -154,7 +150,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "../coin-agency-recharge/delete/" + model_id,
+                        url: "../coin-agency-coin-send-request/delete/" + model_id,
                         success: function (data)
                         {
                             if(data.status == true)

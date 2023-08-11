@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('level')->unique()->nullable();
             $table->rememberToken();
             $table->boolean('approval_status')->default(0);
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

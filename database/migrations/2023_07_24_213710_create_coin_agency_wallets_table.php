@@ -17,7 +17,7 @@ class CreateCoinAgencyWalletsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->decimal('total_amount', 8, 2);
-            $table->decimal('total_coin', 8, 2);
+            $table->integer('total_coin');
             $table->timestamps();
         });
     }

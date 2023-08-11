@@ -18,7 +18,7 @@ class CreateCoinAgencyCoinSentRequestsTable extends Migration
             $table->integer('user_id');
             $table->string('send_user_name');
             $table->string('send_user_id');
-            $table->decimal('coin', 8, 2);
+            $table->integer('coin');
             $table->enum('approval_status', ['Pending', 'Approved', 'Rejected'])->default('Pending');
             $table->integer('approved_by')->nullable();
             $table->integer('rejected_by')->nullable();

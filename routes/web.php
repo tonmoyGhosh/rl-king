@@ -16,6 +16,9 @@ use App\Http\Controllers\Backend\HostAgencyUserController;
 use App\Http\Controllers\Backend\CurrencyController;
 use App\Http\Controllers\Backend\CoinAgencyRechargeController;
 use App\Http\Controllers\Backend\CoinAgencyCoinSendController;
+use App\Http\Controllers\Backend\CoinAgencyRechargeRequestController;
+use App\Http\Controllers\Backend\CoinAgencyProfileController;
+use App\Http\Controllers\Backend\CoinAgencyCoinSendRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,17 +64,32 @@ Route::group(['middleware' => ['role:Super Admin|Admin']], function ()
         Route::get('list', [CoinAgencyUserController::class, 'index'])->name('coin-agency-users-list');
     });
 
-    Route::prefix('host-agency-users')->group(function () 
+    Route::prefix('host-agency-users')->group(function ()
     {
         Route::get('list', [HostAgencyUserController::class, 'index'])->name('host-agency-users-list');
     });
 
     Route::get('currency/list', [CurrencyController::class, 'index'])->name('currency-list');
 
+    Route::get('coin-agency-recharge-request/list', [CoinAgencyRechargeRequestController::class, 'index'])->name('coin-agency-recharge-request-list');
+    Route::get('coin-agency-recharge-request/edit/{id}', [CoinAgencyRechargeRequestController::class, 'edit'])->name('coin-agency-recharge-request-edit');
+    Route::post('coin-agency-recharge-request/update', [CoinAgencyRechargeRequestController::class, 'update'])->name('coin-agency-recharge-request-update');
+    Route::post('coin-agency-recharge-request/delete/{id}', [CoinAgencyRechargeRequestController::class, 'delete'])->name('coin-agency-recharge-request-delete');
+
+    Route::get('coin-agency-coin-send-request/list', [CoinAgencyCoinSendRequestController::class, 'index'])->name('coin-agency-coin-send-request-list');
+
+    Route::get('coin-agency-coin-send-request/edit/{id}', [CoinAgencyCoinSendRequestController::class, 'edit'])->name('coin-agency-coin-send-request-edit');
+
+    Route::post('coin-agency-coin-send-request/update', [CoinAgencyCoinSendRequestController::class, 'update'])->name('coin-agency-coin-send-request-update');
+
+    Route::post('coin-agency-coin-send-request/delete/{id}', [CoinAgencyCoinSendRequestController::class, 'delete'])->name('coin-agency-coin-send-request-delete');
+
 });
 
 Route::group(['middleware' => ['role:Coin Agency']], function ()
 {   
+    Route::get('/coin-agency-profile', [CoinAgencyProfileController::class, 'profile'])->name('coin-agency-profile');
+
     Route::get('/coin-agency-recharge/list', [CoinAgencyRechargeController::class, 'index'])->name('coin-agency-recharge-list');
     Route::get('/coin-agency-recharge/create', [CoinAgencyRechargeController::class, 'create'])->name('coin-agency-recharge-create');
     Route::post('/coin-agency-recharge/store', [CoinAgencyRechargeController::class, 'store'])->name('coin-agency-recharge-store');
@@ -84,5 +102,5 @@ Route::group(['middleware' => ['role:Coin Agency']], function ()
     Route::post('/coin-agency-coin-send/store', [CoinAgencyCoinSendController::class, 'store'])->name('coin-agency-coin-send-store');
     Route::get('/coin-agency-coin-send/edit/{id}', [CoinAgencyCoinSendController::class, 'edit'])->name('coin-agency-coin-send-edit');
     Route::post('/coin-agency-coin-send/update', [CoinAgencyCoinSendController::class, 'update'])->name('coin-agency-coin-send-update');
-    Route::get('/coin-agency-coin-send/delete', [CoinAgencyCoinSendController::class, 'delete'])->name('coin-agency-coin-send-delete');
+    Route::post('/coin-agency-coin-send/delete/{id}', [CoinAgencyCoinSendController::class, 'delete'])->name('coin-agency-coin-send-delete');
 });

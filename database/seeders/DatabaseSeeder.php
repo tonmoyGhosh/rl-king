@@ -29,25 +29,11 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@rlking.com',
-            'password' => Hash::make('123456'),
+            'email' => 'iubat.minhaj329fall@gmail.com',
+            'password' => Hash::make('adminMinhaj'),
             'approval_status'  => 1
         ]);
-
-        User::create([
-            'name' => 'Executive',
-            'email' => 'executive@rlking.com',
-            'password' => Hash::make('123456'),
-            'approval_status'  => 1
-        ]);
-
-        User::create([
-            'name' => 'Support Staff',
-            'email' => 'support-staff@rlking.com',
-            'password' => Hash::make('123456'),
-            'approval_status'  => 1
-        ]);
-
+        
         // Roles Add
         $role = Role::create(['name' => 'Super Admin']);
         $role = Role::create(['name' => 'Admin']);
@@ -62,12 +48,6 @@ class DatabaseSeeder extends Seeder
 
         $user = User::find(2);
         $user->assignRole('Admin');
-
-        $user = User::find(3);
-        $user->assignRole('Executive');
-
-        $user = User::find(4);
-        $user->assignRole('Support Staff');
 
         // Currencies Add
         Currency::create([

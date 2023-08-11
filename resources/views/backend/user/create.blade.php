@@ -46,7 +46,7 @@
                         </diV>
 
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-2">
                                     <label>Password:</label>
@@ -58,7 +58,7 @@
                                     <input type="checkbox" onclick="showPassword()"> Show Password
                                 </div>
                             </div>
-                        </diV>
+                        </diV> -->
 
                         <div class="form-group">
                             <div class="row">

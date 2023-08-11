@@ -45,6 +45,17 @@
                     </a>
                 </div>
                 
+                <div class="menu-item {{ (request()->is('*currency*')) ? 'show hover' : '' }}">
+                    <a class="menu-link" href="{{ route('currency-list')}}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Currency List</span>
+                    </a>
+                </div>
+
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('*users*')) ? 'show hover' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -87,14 +98,25 @@
                     </div>
                 </div>
 
-                <div class="menu-item {{ (request()->is('*currency*')) ? 'show hover' : '' }}">
-                    <a class="menu-link" href="{{ route('currency-list')}}">
+                <div class="menu-item {{ (request()->is('*coin-agency-recharge-request/list*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-recharge-request-list') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
                             </span>
                         </span>
-                        <span class="menu-title">Currency List</span>
+                        <span class="menu-title">Coin Agency Recharge Request</span>
+                    </a>
+                </div>
+
+                <div class="menu-item {{ (request()->is('*coin-agency-coin-send-request*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-coin-send-request-list') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Coin Agency Coin Send Request</span>
                     </a>
                 </div>
 
@@ -112,7 +134,18 @@
                     </a>
                 </div>
 
-                <div class="menu-item {{ (request()->is('*coin-agency-recharge-list*')) ? 'show hover' : '' }}">
+                <div class="menu-item {{ (request()->is('*coin-agency-profile*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('coin-agency-profile') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Profile</span>
+                    </a>
+                </div>
+
+                <div class="menu-item {{ (request()->is('*coin-agency-recharge*')) ? 'show hover' : '' }}">
                     <a class="menu-link " href="{{ route('coin-agency-recharge-list') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -123,7 +156,7 @@
                     </a>
                 </div>
 
-                <div class="menu-item {{ (request()->is('*coin-agency-coin-send-list*')) ? 'show hover' : '' }}">
+                <div class="menu-item {{ (request()->is('*coin-agency-coin-send*')) ? 'show hover' : '' }}">
                     <a class="menu-link " href="{{ route('coin-agency-coin-send-list') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -133,35 +166,6 @@
                         <span class="menu-title">Coin Send</span>
                     </a>
                 </div>
-                <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('*master_report_usage*')) ? 'show hover' : '' }}">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                           <span class="svg-icon svg-icon-2">
-                                <img alt="Logo" src="{{asset('metch')}}/media/logos/monthly_report.svg">
-                            </span>
-                        </span>
-                        <span class="menu-title">Master Report(Usage)</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div kt-hidden-height="118" class="menu-sub menu-sub-accordion menu-active-bg page_speed_613444025" style="display: {{(request()->is('*master_report_usage*')) ? 'block':'none'}}; overflow: hidden;">
-                        <div class="menu-item {{ (request()->is('*sms*')) ? 'show hover' : '' }}">
-                            <a class="menu-link" href="" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Sms Master Report</span>
-                            </a>
-                        </div>
-                        <div class="menu-item menu-accordion {{ (request()->is('*voice*')) ? 'show hover' : '' }}">
-                            <a class="menu-link" href="">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Voice Master Report</span>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
                 @endrole
                
 

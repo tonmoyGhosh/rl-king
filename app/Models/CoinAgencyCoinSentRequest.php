@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class CoinAgencyCoinSentRequest extends Model
 {
@@ -18,4 +19,14 @@ class CoinAgencyCoinSentRequest extends Model
         'approved_by',
         'rejected_by'
     ];
+
+    public function approved_user()
+    {
+        return $this->belongsTo(User::class, 'approved_by', 'id')->select('id', 'name', 'email');
+    }
+
+    public function rejected_user()
+    {
+        return $this->belongsTo(User::class, 'rejected_by', 'id')->select('id', 'name', 'email');
+    }
 }

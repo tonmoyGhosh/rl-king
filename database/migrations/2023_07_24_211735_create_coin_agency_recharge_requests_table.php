@@ -18,6 +18,7 @@ class CreateCoinAgencyRechargeRequestsTable extends Migration
             $table->integer('user_id');
             $table->integer('currency_id');
             $table->decimal('amount', 8, 2);
+            $table->integer('coin')->nullable();
             $table->string('payment_type')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('screen_shot_file')->nullable();
