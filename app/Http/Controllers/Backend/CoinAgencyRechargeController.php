@@ -99,6 +99,16 @@ class CoinAgencyRechargeController extends Controller
             {
                 return response()->json(['errors'=>$validator->errors()]);
             }
+
+            if($request->amount == 0) 
+            {
+                $response = [
+                    'status'    => false,
+                    'message'   => 'You can not try with 0 amount'
+                ];
+        
+                return response()->json($response);
+            }
     
             $model                          = new CoinAgencyRechargeRequest();
             $model->user_id                 = Auth::user()->id;
@@ -157,6 +167,16 @@ class CoinAgencyRechargeController extends Controller
             if($validator->fails())
             {
                 return response()->json(['errors'=>$validator->errors()]);
+            }
+
+            if($request->amount == 0) 
+            {
+                $response = [
+                    'status'    => false,
+                    'message'   => 'You can not try with 0 amount'
+                ];
+        
+                return response()->json($response);
             }
 
             $model                          = CoinAgencyRechargeRequest::find($request->model_id);

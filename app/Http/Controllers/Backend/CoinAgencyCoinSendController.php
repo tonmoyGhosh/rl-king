@@ -85,6 +85,16 @@ class CoinAgencyCoinSendController extends Controller
                 return response()->json(['errors'=>$validator->errors()]);
             }
 
+            if($request->coin == 0) 
+            {
+                $response = [
+                    'status'    => false,
+                    'message'   => 'You can not send 0 coin'
+                ];
+
+                return response()->json($response);
+            }
+
             $existPendingRequest = CoinAgencyCoinSentRequest::where('user_id', Auth::user()->id)->where('approval_status', 'Pending')->first();
             if($existPendingRequest)
             {

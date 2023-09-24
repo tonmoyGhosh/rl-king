@@ -123,6 +123,15 @@
                 })
             }
 
+            function swal_error_2(msg) {
+                Swal.fire({
+                    position: 'centered',
+                    icon: 'error',
+                    title: msg,
+                    showConfirmButton: true,
+                })
+            }
+
             // csrf token
             $.ajaxSetup({
                 headers: {
@@ -158,6 +167,10 @@
                                 $('#amount_msg').html(data.errors.amount[0]);
                             if(data.errors.payment_type)
                                 $('#payment_type_msg').html(data.errors.payment_type[0]);
+                        }
+                        else if(data.status == false)
+                        {
+                            swal_error_2(data.message);
                         }
                         else if(data.status == true)
                         {
