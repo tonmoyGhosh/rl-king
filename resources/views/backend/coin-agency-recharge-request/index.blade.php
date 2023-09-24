@@ -62,6 +62,16 @@
         }
 
         // error alert
+        function swal_error_2(msg) {
+            Swal.fire({
+                position: 'centered',
+                icon: 'error',
+                title: msg,
+                showConfirmButton: true,
+            })
+        }
+
+        // error alert
         function swal_error() {
             Swal.fire({
                 position: 'centered',
@@ -160,6 +170,11 @@
                             if(data.status == true)
                             {
                                 swal_success(data.message);
+                                table.draw();
+                            }
+                            if(data.status == false)
+                            {
+                                swal_error_2(data.message);
                                 table.draw();
                             }
                             else swal_error();

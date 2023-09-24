@@ -143,6 +143,18 @@ class CoinAgencyCoinSendController extends Controller
 
         try 
         {   
+            $existData = CoinAgencyCoinSentRequest::whereIn('approval_status', ['Approved', 'Rejected'])
+                                        ->where('id', $id)->first();
+
+            if($existData) {
+                $response = [
+                    'status'    => false,
+                    'message'   => 'Already '.$existData->approval_status.' by admin, you can not delete now'
+                ];
+    
+                return response()->json($response);
+            }
+
             CoinAgencyCoinSentRequest::find($id)->delete();
 
             DB::commit();

@@ -200,6 +200,18 @@ class CoinAgencyRechargeController extends Controller
 
         try 
         {   
+            $existData = CoinAgencyRechargeRequest::whereIn('approval_status', ['Approved', 'Rejected'])
+                                        ->where('id', $id)->first();
+
+            if($existData) {
+                $response = [
+                    'status'    => false,
+                    'message'   => 'Already '.$existData->approval_status.' by admin, you can not delete now'
+                ];
+    
+                return response()->json($response);
+            }
+
             CoinAgencyRechargeRequest::find($id)->delete();
 
             DB::commit();
