@@ -109,10 +109,13 @@ class RegistrationController extends Controller
                 return response()->json(['errors' => $validator->errors()]);
             }
 
+            $code = 'rlking$host#'.(User::count() + 1);
+
             // User Add
             $user               = new User();
             $user->name         = $request->name;
             $user->email        = $request->email;
+            $user->code         = $code;
             $user->phone_no     = $request->phone_no;
             $user->save();
 

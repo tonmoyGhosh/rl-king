@@ -167,6 +167,32 @@
                     </a>
                 </div>
                 @endrole
+
+                @role('Host Agency')
+                
+                <div class="menu-item {{ (request()->is('*dashboard*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('dashboard') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="menu-item {{ (request()->is('*host-agency-profile*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('host-agency-profile') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Profile</span>
+                    </a>
+                </div>
+
+                @endrole
                
 
             </div>

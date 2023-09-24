@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\CoinAgencyCoinSendController;
 use App\Http\Controllers\Backend\CoinAgencyRechargeRequestController;
 use App\Http\Controllers\Backend\CoinAgencyProfileController;
 use App\Http\Controllers\Backend\CoinAgencyCoinSendRequestController;
+use App\Http\Controllers\Backend\HostAgencyProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::post('/host-agency/register/store', [RegistrationController::class, 'host
 
 Auth::routes();
 
-Route::group(['middleware' => ['role:Super Admin|Admin|Coin Agency']], function ()
+Route::group(['middleware' => ['role:Super Admin|Admin|Coin Agency|Host Agency']], function ()
 { 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
@@ -103,4 +104,9 @@ Route::group(['middleware' => ['role:Coin Agency']], function ()
     Route::get('/coin-agency-coin-send/edit/{id}', [CoinAgencyCoinSendController::class, 'edit'])->name('coin-agency-coin-send-edit');
     Route::post('/coin-agency-coin-send/update', [CoinAgencyCoinSendController::class, 'update'])->name('coin-agency-coin-send-update');
     Route::post('/coin-agency-coin-send/delete/{id}', [CoinAgencyCoinSendController::class, 'delete'])->name('coin-agency-coin-send-delete');
+});
+
+Route::group(['middleware' => ['role:Host Agency']], function ()
+{ 
+    Route::get('/host-agency-profile', [HostAgencyProfileController::class, 'profile'])->name('host-agency-profile');
 });

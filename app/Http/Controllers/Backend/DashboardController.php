@@ -43,6 +43,11 @@ class DashboardController extends Controller
             $data['total_coin_send'] = CoinAgencyCoinSentRequest::where('user_id', $user->id)->where('approval_status', 'Approved')->sum('coin');
         }
 
+        if($userRole == 'Host Agency')
+        {       
+            $data['role_name']  = $userRole;
+        }
+
         if($userRole == 'Admin' || $userRole == 'Super Admin')
         {   
             $data['role_name']  = $userRole;

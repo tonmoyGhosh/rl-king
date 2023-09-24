@@ -21,7 +21,9 @@
                                     <th>Sl</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Role</th>
+                                    <th>Code</th>
+                                    <th>Contact Number</th>
+                                    <th>Current Status</th>
                                     <th style="width:137px;">Action</th>
                                 </tr>
                             </thead>
@@ -90,6 +92,14 @@
                 {
                     data: 'email',
                     name: 'email'
+                },
+                {
+                    data: 'code',
+                    name: 'code'
+                },
+                {
+                    data: 'phone_no',
+                    name: 'phone_no'
                 },
                 {
                     data: 'status',

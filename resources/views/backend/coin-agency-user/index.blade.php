@@ -23,7 +23,7 @@
                                     <th>Email</th>
                                     <th>Code</th>
                                     <th>Contact Number</th>
-                                    <th>Role</th>
+                                    <th>Current Status</th>
                                     <th style="width:137px;">Action</th>
                                 </tr>
                             </thead>
