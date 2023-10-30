@@ -20,6 +20,8 @@ use App\Http\Controllers\Backend\CoinAgencyRechargeRequestController;
 use App\Http\Controllers\Backend\CoinAgencyProfileController;
 use App\Http\Controllers\Backend\CoinAgencyCoinSendRequestController;
 use App\Http\Controllers\Backend\HostAgencyProfileController;
+use App\Http\Controllers\Backend\LiveHosterController;
+use App\Http\Controllers\Backend\LiveHosterRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +87,11 @@ Route::group(['middleware' => ['role:Super Admin|Admin']], function ()
 
     Route::post('coin-agency-coin-send-request/delete/{id}', [CoinAgencyCoinSendRequestController::class, 'delete'])->name('coin-agency-coin-send-request-delete');
 
+    Route::get('host-agency-live-hoster-request/list', [LiveHosterRequestController::class, 'index'])->name('host-agency-live-hoster-request-list');
+    Route::get('host-agency-live-hoster-request/edit/{id}', [LiveHosterRequestController::class, 'edit'])->name('host-agency-live-hoster-request-edit');
+    Route::post('host-agency-live-hoster-request/update}', [LiveHosterRequestController::class, 'update'])->name('host-agency-live-hoster-request-update');
+    Route::post('host-agency-live-hoster-request/delete/{id}', [LiveHosterRequestController::class, 'delete'])->name('host-agency-live-hoster-request-delete');
+
 });
 
 Route::group(['middleware' => ['role:Coin Agency']], function ()
@@ -109,4 +116,11 @@ Route::group(['middleware' => ['role:Coin Agency']], function ()
 Route::group(['middleware' => ['role:Host Agency']], function ()
 { 
     Route::get('/host-agency-profile', [HostAgencyProfileController::class, 'profile'])->name('host-agency-profile');
+
+    Route::get('/host-agency-live-hoster/list', [LiveHosterController::class, 'index'])->name('host-agency-live-hoster-list');
+    Route::get('/host-agency-live-hoster/create', [LiveHosterController::class, 'create'])->name('host-agency-live-hoster-craete');
+    Route::post('/host-agency-live-hoster/store', [LiveHosterController::class, 'store'])->name('host-agency-live-hoster-store');
+    Route::get('/host-agency-live-hoster/edit/{id}', [LiveHosterController::class, 'edit'])->name('host-agency-live-hoster-edit');
+    Route::post('/host-agency-live-hoster/update', [LiveHosterController::class, 'update'])->name('host-agency-live-hoster-update');
+    Route::post('/host-agency-live-hoster/delete/{id}', [LiveHosterController::class, 'delete'])->name('host-agency-live-hoster-delete');
 });

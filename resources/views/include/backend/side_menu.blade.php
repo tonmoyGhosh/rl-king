@@ -120,6 +120,17 @@
                     </a>
                 </div>
 
+                <div class="menu-item {{ (request()->is('*host-agency-live-hoster-request*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('host-agency-live-hoster-request-list') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Live Hoster Request</span>
+                    </a>
+                </div>
+
                 @endrole
 
                 @role('Coin Agency')
@@ -189,6 +200,17 @@
                             </span>
                         </span>
                         <span class="menu-title">Profile</span>
+                    </a>
+                </div>
+
+                <div class="menu-item {{ (request()->is('*host-agency-live-hoster*')) ? 'show hover' : '' }}">
+                    <a class="menu-link " href="{{ route('host-agency-live-hoster-list') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <img alt="Logo" src="{{asset('metch')}}/media/logos/dasboard.svg">
+                            </span>
+                        </span>
+                        <span class="menu-title">Live Hoster</span>
                     </a>
                 </div>
 
